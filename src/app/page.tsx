@@ -10,9 +10,15 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 
+type NewsItem = {
+  title: string;
+  content: string;
+  date: string;
+};
+
 export default function HomePage() {
   const { user } = useUser();
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<NewsItem[]>([]);
   const [allowed, setAllowed] = useState<boolean | null>(null);
 
   useEffect(() => {
